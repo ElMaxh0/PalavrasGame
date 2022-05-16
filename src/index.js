@@ -3,11 +3,31 @@ import ReactDOM from 'react-dom/client';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
+import PalavrasProvider from './global/hook/PalavrasArray';
+import LettersProvider from './global/hook/lettersArray';
+import SelectedCordenatesProvider from './global/hook/selectedCordenates';
+import SelectedWordProvider from './global/hook/SelectedWord';
+import UserRowProvider from './global/hook/userRow';
+import PageContentProvider from './global/hook/page';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
-    <App />
+    <PageContentProvider>
+      <PalavrasProvider>
+        <UserRowProvider>
+          <PalavrasProvider>
+            <LettersProvider>
+              <SelectedCordenatesProvider>
+                <SelectedWordProvider>
+                  <App />
+                </SelectedWordProvider>
+              </SelectedCordenatesProvider>
+            </LettersProvider>
+          </PalavrasProvider>
+        </UserRowProvider>
+      </PalavrasProvider>
+    </PageContentProvider>
   </React.StrictMode>
 );
 
